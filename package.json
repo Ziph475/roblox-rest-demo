@@ -2,10 +2,12 @@
     "name": "mein-nodejs-service",
     "version": "1.0.0",
     "scripts": {
-      "start": "node index.js"
+        "start": "nodemon index.js"
     },
     "dependencies": {
-      "express": "^4.17.1"
+        "express": "^4.21.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.7"
     }
-  }
-  
+}
