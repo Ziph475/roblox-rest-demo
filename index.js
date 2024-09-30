@@ -1,8 +1,18 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Server läuft auf Port ${port}`);
+});
+
+// Fehlerbehandlung für "EADDRINUSE"
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error(`Port ${port} ist bereits in Benutzung`);
+    process.exit(1);
+  } else {
+    throw err;
+  }
 });
 
 // Middleware, um JSON-Daten zu parsen
